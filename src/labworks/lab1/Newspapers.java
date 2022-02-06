@@ -1,6 +1,5 @@
 package labworks.lab1;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class Newspapers {
@@ -8,7 +7,7 @@ public class Newspapers {
     private String type;
     private float price;
     private int periodicity;
-    private String company; //Видавництво
+    private String company;
     private String fullNameDirector;
 
     public Newspapers(String name, String type, float price, int periodicity, String company, String fullNameDirector) {
@@ -85,16 +84,16 @@ public class Newspapers {
                 "Sanwerk", "Vivienne", "Адеф-Украина", "Диана плюс"};
         String[] typeArr = new String[]{"Газета", "Журнал", "Ежегодник", "Научный журнал", "Календари", "Литературный журнал", "Справочник", "Литература", "Библиографический указатель", "Реферативный сборник"};
         String[] companyArr = new String[]{"Грамота", "Ранок", "Освіта", "Генеза", "Академія", "Дух і Літера", "Аверс", "Країна Мрій", "Основи", "Дніпро"};
-        String[] fullNameArray = new String[]{"Суворов Константин Иванович", "Сидоров Даниил Дмитриевич", "Крылов Ярослав Артёмович", "Васильев Савелий Георгиевич", "Петров Артём Евгеньевич", "Николаев Тимофей Дмитриевич", "Егоров Василий Львович", "Соколов Андрей Львович", "Степанов Максим Андреевич", "Иванов Тимофей Дамирович"};
+        String[] fullNameArr = new String[]{"Суворов Константин Иванович", "Сидоров Даниил Дмитриевич", "Крылов Ярослав Артёмович", "Васильев Савелий Георгиевич", "Петров Артём Евгеньевич", "Николаев Тимофей Дмитриевич", "Егоров Василий Львович", "Соколов Андрей Львович", "Степанов Максим Андреевич", "Иванов Тимофей Дамирович"};
         Newspapers[] array = new Newspapers[count];
         for (int i = 0; i < array.length; i++) {
-            int randN = new Random().nextInt(nameArr.length);
-            int randT = new Random().nextInt(typeArr.length);
+            int randNameIndex = new Random().nextInt(nameArr.length);
+            int randTypeIndex = new Random().nextInt(typeArr.length);
             float randPrice = 70 + new Random().nextFloat() * (500 - 70);
             int randPeriod = 1 + (int) (new Random().nextFloat() * (14 - 1));
-            int randC = new Random().nextInt(companyArr.length);
-            int randF = new Random().nextInt(fullNameArray.length);
-            Newspapers obj = new Newspapers(nameArr[randN], typeArr[randT], randPrice, randPeriod, companyArr[randC], fullNameArray[randF]);
+            int randCompanyIndex = new Random().nextInt(companyArr.length);
+            int randFullNameIndex = new Random().nextInt(fullNameArr.length);
+            Newspapers obj = new Newspapers(nameArr[randNameIndex], typeArr[randTypeIndex], randPrice, randPeriod, companyArr[randCompanyIndex], fullNameArr[randFullNameIndex]);
             array[i] = obj;
         }
         return array;
