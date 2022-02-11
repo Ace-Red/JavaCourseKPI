@@ -21,7 +21,8 @@ public class InputUtility {
                     chosenVariant = new String[2];
                     chosenVariant[0] = "1";
                     view.printMessage(NewspaperView.INPUT_TYPE);
-                    chosenVariant[1] = sc.next();
+                    sc = new Scanner(System.in);
+                    chosenVariant[1] = sc.nextLine();
                     return chosenVariant;
                 } else if (variant == 2) {
                     chosenVariant = new String[1];

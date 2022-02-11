@@ -3,7 +3,7 @@ package com.labworks.lab1.model;
 import java.util.Random;
 
 public class ArrayNewspaperModel {
-    private static NewspaperModel[] arrayNewspaper;
+    private static NewspaperModel[] filteredNewspaper;
     private static final String[] NAME_ARR = new String[]{"Forbes", "OTTOBRE", "Вишиванка", "Megatour", "ВСЕ О РУКОДЕЛИИ", "Florium",
             "Sanwerk", "Vivienne", "Адеф-Украина", "Диана плюс"};
     private static final String[] TYPE_ARR = new String[]{"Газета", "Журнал", "Ежегодник", "Научный журнал", "Календари", "Литературный журнал", "Справочник", "Литература", "Библиографический указатель", "Реферативный сборник"};
@@ -11,11 +11,11 @@ public class ArrayNewspaperModel {
     private static final String[] FULL_NAME_ARR = new String[]{"Суворов Константин Иванович", "Сидоров Даниил Дмитриевич", "Крылов Ярослав Артёмович", "Васильев Савелий Георгиевич", "Петров Артём Евгеньевич", "Николаев Тимофей Дмитриевич", "Егоров Василий Львович", "Соколов Андрей Львович", "Степанов Максим Андреевич", "Иванов Тимофей Дамирович"};
 
     public NewspaperModel[] getArrayNewspaper() {
-        return arrayNewspaper;
+        return filteredNewspaper;
     }
 
     public void setArrayNewspaper(NewspaperModel[] arrayNewspaper) {
-        ArrayNewspaperModel.arrayNewspaper = arrayNewspaper;
+        ArrayNewspaperModel.filteredNewspaper = arrayNewspaper;
     }
 
     public NewspaperModel[] createArray(int count) {
@@ -43,8 +43,9 @@ public class ArrayNewspaperModel {
         NewspaperModel[] result = new NewspaperModel[counter];
         int indexResArr = 0;
         for (NewspaperModel newspapers : array) {
-            if (newspapers.getType().equals(type) && indexResArr<counter) {
+            if (newspapers.getType().equals(type) && indexResArr<=counter) {
                 result[indexResArr] = newspapers;
+                indexResArr+=1;
             }
         }
         return result;
@@ -60,8 +61,9 @@ public class ArrayNewspaperModel {
         NewspaperModel[] result = new NewspaperModel[counter];
         int indexResArr = 0;
         for (NewspaperModel newspapers : array) {
-            if (newspapers.getPeriodicity() <= 7 && indexResArr<counter) {
+            if (newspapers.getPeriodicity() <= 7 && indexResArr<=counter) {
                 result[indexResArr] = newspapers;
+                indexResArr+=1;
             }
         }
         return result;
@@ -77,8 +79,9 @@ public class ArrayNewspaperModel {
         NewspaperModel[] result = new NewspaperModel[counter];
         int indexResArr = 0;
         for (NewspaperModel newspapers : array) {
-            if (newspapers.getCompany().equals(company) && newspapers.getPrice() <= maxPrice && indexResArr<counter) {
+            if (newspapers.getCompany().equals(company) && newspapers.getPrice() <= maxPrice && indexResArr<=counter) {
                 result[indexResArr] = newspapers;
+                indexResArr+=1;
             }
         }
         return result;
